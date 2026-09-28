@@ -1,0 +1,126 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* MES semantic tokens */
+  --color-plan: var(--plan);
+  --color-actual: var(--actual);
+  --color-actual-border: var(--actual-border);
+  --color-run: var(--run);
+  --color-wait: var(--wait);
+  --color-setup: var(--setup);
+  --color-breakdown: var(--breakdown);
+  --color-maintenance: var(--maintenance);
+  --color-offline: var(--offline);
+  --color-delay: var(--delay);
+  --color-warning: var(--warning);
+  --color-completed: var(--completed);
+  --color-sat: var(--sat);
+  --color-sun: var(--sun);
+  --color-today: var(--today);
+}
+
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.968 0.003 250);
+  --foreground: oklch(0.21 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 250);
+  --primary: oklch(0.585 0.166 149.3); /* factory green #16a34a */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.93 0.01 250);
+  --secondary-foreground: oklch(0.28 0.02 250);
+  --muted: oklch(0.95 0.005 250);
+  --muted-foreground: oklch(0.52 0.02 250);
+  --accent: oklch(0.94 0.03 150);
+  --accent-foreground: oklch(0.3 0.06 150);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.89 0.008 250);
+  --input: oklch(0.89 0.008 250);
+  --ring: oklch(0.585 0.166 149.3);
+
+  --plan: oklch(0.55 0.12 250);
+  --actual: oklch(0.95 0.09 100); /* #fff9c4 */
+  --actual-border: oklch(0.79 0.16 85); /* #fbc02d */
+  --run: oklch(0.62 0.17 149);
+  --wait: oklch(0.72 0.02 250);
+  --setup: oklch(0.72 0.15 250);
+  --breakdown: oklch(0.55 0.22 27);
+  --maintenance: oklch(0.6 0.02 250);
+  --offline: oklch(0.45 0.01 250);
+  --delay: oklch(0.58 0.22 27);
+  --warning: oklch(0.85 0.14 90);
+  --completed: oklch(0.87 0.12 150);
+  --sat: oklch(0.95 0.03 240);
+  --sun: oklch(0.95 0.04 25);
+  --today: oklch(0.97 0.05 150);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, "Segoe UI", system-ui, sans-serif;
+    font-size: 12px;
+  }
+}
+
+@utility mes-card {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+@utility mes-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  & thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    padding: 8px 6px;
+    font-size: 11px;
+    text-align: left;
+    border: 1px solid var(--color-border);
+  }
+  & tbody td {
+    border: 1px solid var(--color-border);
+    padding: 5px 6px;
+    font-size: 11px;
+  }
+  & tbody tr:nth-child(even) {
+    background-color: var(--color-muted);
+  }
+}
